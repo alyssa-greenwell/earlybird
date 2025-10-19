@@ -214,6 +214,17 @@ class Preprocess(ABC):
     def save(self) -> None:
         """Save the formatted dataset"""
         pass
+        
+    def truncate_long_sequences(self, tokenizer, max_len=512):
+        for s in self.splits:
+            truncated_data = []
+            for entry in self.json_lines[s]:
+                tokens = tokenizer.tokenize(entry['src'])
+                if len(tokens) > max_len:
+                    tokens = tokens[:max_len]
+                    entry['src'] = tokenizer.convert_tokens_to_string(tokens)
+                truncated_data.append(entry)
+            self.json_lines[s] = truncated_data
 
     def ensure_data_output_dir(self) -> None:
         """Ensure the folder for storing the formatted data exists"""
@@ -461,6 +472,10 @@ if __name__ == '__main__':
 
     dataset.read()
     dataset.transform()
+
+    tokenizer = AutoTokenizer.from_pretrained(Path(config['project_path']) / args.tokenizer_path)
+    dataset.truncate_long_sequences(tokenizer)
+
     dataset.save()
     dataset.class_distribution()
     dataset.token_stats()
