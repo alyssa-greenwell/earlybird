@@ -11,6 +11,14 @@
 
 mkdir -p logs
 
+module load python/3.9 2>/dev/null || true
+
+source /mnt/lustre/koa/scratch/alyssag2/earlybird-main/venv/bin/activate
+
+export MLFLOW_TRACKING_URI="file:$(pwd)/mlruns"
+
+export PYTHONUNBUFFERED=1  # make logs print live
+
 DATASETS=("devign" "bifi" "reveal")
 COMBS=("w_sum_tokens_w_sum_layers" "max_pool_layers_w_sum_tokens" "w_sum_layers_w_sum_tokens" "max_pool_tokens_w_sum_layers" "max_pool_layers_max_pool_tokens" "w_sum_cls" "max_pool_cls")
 ONE_LAYER_COMBS=("one_layer_cls" "one_layer_w_sum_tokens" "one_layer_max_pool_tokens")
