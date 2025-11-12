@@ -10,6 +10,8 @@
 #SBATCH --array=0-1619
 
 mkdir -p logs
+ml lang/Anaconda3
+source venv/bin/activate
 
 DATASETS=("devign" "bifi" "reveal")
 COMBS=("w_sum_tokens_w_sum_layers" "max_pool_layers_w_sum_tokens" "w_sum_layers_w_sum_tokens" "max_pool_tokens_w_sum_layers" "max_pool_layers_max_pool_tokens" "w_sum_cls" "max_pool_cls")
