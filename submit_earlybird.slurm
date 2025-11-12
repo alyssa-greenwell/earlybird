@@ -13,6 +13,8 @@ module purge
 module load lang/Python/3.9.5-GCCcore-10.3.0
 export TOKENIZERS_PARALLELISM=false
 export MLFLOW_TRACKING_URI="file:$(pwd)/mlruns"
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+export TORCH_COMPILE_DISABLE=1
 mkdir -p logs
 source venv/bin/activate
 
