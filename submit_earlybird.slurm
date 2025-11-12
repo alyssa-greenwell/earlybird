@@ -9,8 +9,11 @@
 #SBATCH --time=08:00:00
 #SBATCH --array=0-1619
 
+module purge
+module load lang/Python/3.9.5-GCCcore-10.3.0
+export TOKENIZERS_PARALLELISM=false
+export MLFLOW_TRACKING_URI="file:$(pwd)/mlruns"
 mkdir -p logs
-ml lang/Anaconda3
 source venv/bin/activate
 
 DATASETS=("devign" "bifi" "reveal")
