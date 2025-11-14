@@ -3,9 +3,9 @@
 #SBATCH --output=logs/earlybird_all_%A_%a.out
 #SBATCH --error=logs/earlybird_all_%A_%a.err
 #SBATCH --partition=gpu
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:NV-A30:1
 #SBATCH --cpus-per-task=4
-#SBATCH --mem=128G
+#SBATCH --mem=64G
 #SBATCH --time=08:00:00
 #SBATCH --array=0-1619
 
