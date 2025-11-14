@@ -2,8 +2,8 @@
 #SBATCH --job-name=earlybird_all
 #SBATCH --output=logs/earlybird_all_%A_%a.out
 #SBATCH --error=logs/earlybird_all_%A_%a.err
-#SBATCH --partition=gpu
-#SBATCH --gres=gpu:NV-A30:1
+#SBATCH --partition=kill-shared
+#SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=64G
 #SBATCH --time=08:00:00
@@ -77,7 +77,8 @@ CMD="python -m src.run \
   -clf one_linear_layer \
   --combination_type $COMB \
   --seed $SEED \
-  --experiment_no $SLURM_ARRAY_TASK_ID"
+  --experiment_no $SLURM_ARRAY_TASK_ID
+  --batch_size 16"
 
 if [ "$LAYER" != "NA" ]; then
   CMD="$CMD --hidden_layer_to_use $LAYER"
