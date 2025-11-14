@@ -77,8 +77,7 @@ CMD="python -m src.run \
   -clf one_linear_layer \
   --combination_type $COMB \
   --seed $SEED \
-  --experiment_no $SLURM_ARRAY_TASK_ID
-  --batch_size 16"
+  --experiment_no $SLURM_ARRAY_TASK_ID"
 
 if [ "$LAYER" != "NA" ]; then
   CMD="$CMD --hidden_layer_to_use $LAYER"
