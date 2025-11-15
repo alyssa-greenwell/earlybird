@@ -3,8 +3,7 @@
 #SBATCH --output=logs/earlybird_all_%A_%a.out
 #SBATCH --error=logs/earlybird_all_%A_%a.err
 #SBATCH --partition=kill-shared
-#SBATCH --constraint=gpu_24gb
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:NV-A30:1,gpu:NV-L40:1,gpu:NV-H100:1,gpu:nvidia_h200_nvl:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=64G
 #SBATCH --time=08:00:00
