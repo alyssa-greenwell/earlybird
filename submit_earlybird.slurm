@@ -18,7 +18,7 @@ export TORCH_COMPILE_DISABLE=1
 mkdir -p logs
 source venv/bin/activate
 
-DATASETS=("devign" "bifi" "reveal")
+DATASETS=("devign" "break_it_fix_it" "reveal")
 COMBS=("w_sum_tokens_w_sum_layers" "max_pool_layers_w_sum_tokens" "w_sum_layers_w_sum_tokens" "max_pool_tokens_w_sum_layers" "max_pool_layers_max_pool_tokens" "w_sum_cls" "max_pool_cls")
 ONE_LAYER_COMBS=("one_layer_cls" "one_layer_w_sum_tokens" "one_layer_max_pool_tokens")
 SEEDS=(1 2 3 4 5 6 7 8 9 42)
