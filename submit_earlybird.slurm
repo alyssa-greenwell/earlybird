@@ -2,7 +2,7 @@
 #SBATCH --job-name=earlybird_all
 #SBATCH --output=logs/earlybird_all_%A_%a.out
 #SBATCH --error=logs/earlybird_all_%A_%a.err
-#SBATCH --partition=kill-shared
+#SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=64G
