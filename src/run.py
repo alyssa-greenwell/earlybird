@@ -63,7 +63,7 @@ if __name__ == '__main__':
                 dataset=dataset['train'], batch_size=args.batch_size, worker_init_fn=seed_worker,
                 generator=g, shuffle=True, drop_last=True)
             dataloader['valid'] = DataLoader(
-                dataset=dataset['valid'], batch_size=args.batch_size, shuffle=False, drop_last=False)
+                dataset=dataset['valid'], batch_size=args.batch_size, shuffle=False, drop_last=True)
     
             args.num_classes = len(set(dataset['train'].labels))
             model = EncoderWithLayerCombination(args)
@@ -103,7 +103,7 @@ if __name__ == '__main__':
         if args.test:
             dataset['test'] = CodeClassificationDataset(args, config, mode='test')
             dataloader['test'] = DataLoader(
-                dataset=dataset['test'], batch_size=args.batch_size, shuffle=False, drop_last=False)
+                dataset=dataset['test'], batch_size=args.batch_size, shuffle=False, drop_last=True)
     
             if not args.train:
                 num_classes = len(dataset['test'].label_encoder.classes_)
