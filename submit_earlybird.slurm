@@ -7,7 +7,7 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=64G
 #SBATCH --time=72:00:00
-#SBATCH --array=110-219,332-333,335-1619
+#SBATCH --array=110-329,332-333,335-1619
 
 module purge
 module load lang/Python/3.9.5-GCCcore-10.3.0
