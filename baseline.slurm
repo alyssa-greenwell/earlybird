@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=earlybird_all
+#SBATCH --job-name=earlybird_baseline
 #SBATCH --output=logs/earlybird_baseline_%A_%a.out
 #SBATCH --error=logs/earlybird_baseline_%A_%a.err
 #SBATCH --partition=gpu
