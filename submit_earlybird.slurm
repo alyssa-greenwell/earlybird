@@ -6,8 +6,8 @@
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=32G
-#SBATCH --time=72:00:00
-#SBATCH --array=110-329,332-333,335-1619
+#SBATCH --time=8:00:00
+#SBATCH --array=268,450-569,629,635,637-640,642-1619
 
 module purge
 module load lang/Python/3.9.5-GCCcore-10.3.0
