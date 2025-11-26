@@ -7,7 +7,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=32G
 #SBATCH --time=16:00:00
-#SBATCH --array=1422-1435,1437,1439,1441-1450,1453-1461,1463-1467,1477-1499,1501-1505,1507-1540,1542-1545,1547-1568,1570-1619
+#SBATCH --array=1425,1448,1516,1581
 
 module purge
 module load lang/Python/3.9.5-GCCcore-10.3.0
@@ -78,7 +78,7 @@ CMD="python -m src.run \
   --combination_type $COMB \
   --seed $SEED \
   --experiment_no $SLURM_ARRAY_TASK_ID \
-  --batch_size 8"
+  --batch_size 4"
 
 if [ "$LAYER" != "NA" ]; then
   CMD="$CMD --hidden_layer_to_use $LAYER"
