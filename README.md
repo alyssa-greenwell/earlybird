@@ -14,6 +14,24 @@ The paper is deposited on [arXiv](https://arxiv.org/abs/2305.04940), available u
 The replication package is archived on Zenodo with DOI: [10.5281/zenodo.7608802](https://doi.org/10.5281/zenodo.7608802). 
 The source code is distributed under the MIT license, the data is distributed under the CC BY 4.0 license. 
 
+## Additions by Alyssa Greenwell, Gerald Lee, Anika Rahman Joyita, and Nabila Zaman
+The following files were added or edited to this repository for the purpose of the ICS 691G Research Project.
+
+* submit_earlybird.slurm: This is the slurm file used to run the jobs on KOA. This calls src/run.py and runs 1,620 jobs with unique combinations across the Devign, Reveal, and BIFI datasets. The logs can be found under logs folder.
+* baseline.slurm: This slurm file runs the baseline CodeBERT model. It runs 30 different combinations across the three datasets. These logs are also found under the logs folder.
+* generate_csvs.py: This script takes the mlflow output of the jobs run and puts it into three CSV files, one for each dataset, under output/tables. This is done so that notebooks/early_layers_results.ipynb can be run to generate the results.
+* notebooks/early_layers_results.ipynb: This file was written by the original authors of this study, but was modified to suit the purposes of this partial replication. Specifically, the Exception Type dataset was removed and the zero_out_special_tokens = Ture parameter was removed.
+
+To replicate our version of the study: 
+
+- Follow the original instructions to install and set up the environment with CUDA.
+- Preprocess the Devign, Reveal, and BIFI datasets according to the original instructions.
+- On KOA HPC or a similar server, submit a batch job using the submit_earlybird.slurm file.
+- Submit a batch job using baseline.slurm.
+- Run generate_csvs.py.
+- Run notebooks/early_layers_results.ipynb. The entire file will not run properly due to the jobs that were removed. But the results that are relevant to this version of the study will still generate.
+
+This concludes the section of the README that was written by the replication authors. The rest is from the original study cited at the top.
 
 ## Organization
 
